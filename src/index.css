@@ -1,0 +1,431 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mist: #F4F8F7;
+  --color-mist-deep: #E6F0EE;
+  --color-clinical-white: #FFFFFF;
+  --color-canopy: #072A2E;
+  --color-canopy-soft: #0C3B40;
+  --color-ink-muted: #3F6064;
+  --color-emerald: #0B7A5C;
+  --color-emerald-bright: #14B88A;
+  --color-cobalt: #0E6B8A;
+  --color-aqua: #38BDF8;
+  --color-amber: #D97706;
+
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F4F8F7;
+    color: #072A2E;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+  }
+
+  code, pre, .font-code {
+    font-family: var(--font-mono);
+  }
+}
+
+/* ============================================================================
+   COALITION HEALTH ZAMBIA — SOVEREIGN PUBLIC HEALTH 4-LAYER MOTION ARCHITECTURE
+   Palette: Clinical Mist (#F4F8F7) · Midnight Teal (#072A2E) ·
+            Zambian Health Emerald (#0B7A5C / #14B88A) · Clinical Cobalt (#0E6B8A)
+   ============================================================================ */
+
+/* Layer 1: Drifting Zambian Emerald & Clinical Pearl Particle Matrix + Micro-Grid */
+.rea-particles {
+  background-image:
+    radial-gradient(circle, rgba(11, 122, 92, 0.30) 1.25px, transparent 1.25px),
+    radial-gradient(circle, rgba(14, 107, 138, 0.24) 1.35px, transparent 1.35px),
+    linear-gradient(90deg, transparent 49.8%, rgba(11, 122, 92, 0.05) 50%, transparent 50.2%);
+  background-size: 52px 52px, 88px 88px, 104px 104px;
+  -webkit-mask-image: linear-gradient(110deg, transparent 2%, black 22%, black 82%, transparent 100%);
+  mask-image: linear-gradient(110deg, transparent 2%, black 22%, black 82%, transparent 100%);
+  animation: rea-particles-drift 16s linear infinite;
+}
+
+@keyframes rea-particles-drift {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 136px 204px, -199px 132px, 104px 0;
+  }
+}
+
+/* Layer 2: Diagonal Clinical Pearl & Emerald Specular Flash Sweep */
+.rea-sweep {
+  background: linear-gradient(
+    112deg,
+    transparent 34%,
+    rgba(20, 184, 138, 0.10) 46%,
+    rgba(255, 255, 255, 0.84) 50%,
+    rgba(14, 107, 138, 0.09) 54%,
+    transparent 66%
+  );
+  transform: translateX(-80%);
+  animation: rea-sweep-flash 9s ease-in-out infinite;
+}
+
+@keyframes rea-sweep-flash {
+  0% {
+    transform: translateX(-85%);
+  }
+  50% {
+    transform: translateX(85%);
+  }
+  100% {
+    transform: translateX(-85%);
+  }
+}
+
+/* Layer 3: Floating Ambient Zambian Emerald & Clinical Cobalt Radial Glows */
+.rea-glow-a,
+.rea-glow-b,
+.rea-hero-glow-a,
+.rea-hero-glow-b {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(56px);
+  will-change: transform;
+}
+
+.rea-glow-a {
+  top: -110px;
+  right: -90px;
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(20, 184, 138, 0.18) 0%, rgba(11, 122, 92, 0.06) 55%, transparent 72%);
+  animation: rea-glow-float 13s ease-in-out infinite alternate;
+}
+
+.rea-glow-b {
+  bottom: -120px;
+  left: -90px;
+  width: 390px;
+  height: 390px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(14, 107, 138, 0.05) 55%, transparent 74%);
+  animation: rea-glow-float 17s ease-in-out infinite alternate-reverse;
+}
+
+.rea-hero-glow-a {
+  top: -140px;
+  right: -60px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(20, 184, 138, 0.24) 0%, transparent 70%);
+  animation: rea-glow-float 11s ease-in-out infinite alternate;
+}
+
+.rea-hero-glow-b {
+  bottom: -150px;
+  left: 12%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(14, 107, 138, 0.16) 0%, transparent 70%);
+  animation: rea-glow-float 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes rea-glow-float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-26px, 22px, 0) scale(1.12);
+  }
+}
+
+/* Layer 4: Counter-Rotating Emerald & Cobalt Biometric Orbital Rings */
+.rea-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(11, 122, 92, 0.22);
+  will-change: transform;
+}
+
+.rea-orbit::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #14B88A;
+  box-shadow: 0 0 14px rgba(20, 184, 138, 0.78), 0 0 28px rgba(11, 122, 92, 0.45);
+}
+
+.rea-orbit-a {
+  top: 70px;
+  right: -120px;
+  width: 460px;
+  height: 460px;
+  animation: rea-orbit-spin 31s linear infinite;
+}
+
+.rea-orbit-b {
+  bottom: 40px;
+  left: -140px;
+  width: 380px;
+  height: 380px;
+  border-color: rgba(14, 107, 138, 0.18);
+  animation: rea-orbit-spin 39s linear infinite reverse;
+}
+
+.rea-orbit-b::before {
+  background: #38BDF8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.75), 0 0 26px rgba(14, 107, 138, 0.4);
+}
+
+.rea-hero-orbit-a {
+  top: -110px;
+  right: -75px;
+  width: 340px;
+  height: 340px;
+  animation: rea-orbit-spin 26s linear infinite;
+}
+
+.rea-hero-orbit-b {
+  top: -60px;
+  right: -25px;
+  width: 240px;
+  height: 240px;
+  border-style: dashed;
+  border-color: rgba(14, 107, 138, 0.24);
+  animation: rea-orbit-spin 34s linear infinite reverse;
+}
+
+.rea-hero-orbit-b::before {
+  width: 8px;
+  height: 8px;
+  top: -4px;
+  margin-left: -4px;
+  background: #38BDF8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.75);
+}
+
+@keyframes rea-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   CHZ SOVEREIGN HEALTH SURFACES, FLASH SHEEN BUTTONS & SPECULAR KPI CARDS
+   ============================================================================ */
+.editorial-surface {
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(7, 42, 46, 0.10);
+  box-shadow:
+    0 1px 2px rgba(7, 42, 46, 0.04),
+    0 12px 30px -16px rgba(7, 42, 46, 0.13);
+}
+
+.espresso-surface {
+  background: linear-gradient(155deg, #0B3A40 0%, #072A2E 58%, #041B1E 100%);
+  border: 1px solid rgba(20, 184, 138, 0.30);
+  box-shadow: 0 18px 40px -20px rgba(7, 42, 46, 0.52);
+}
+
+/* Flash Sheen Button Micro-Interaction */
+.flash-sheen-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.flash-sheen-btn::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -120%;
+  width: 65%;
+  height: 140%;
+  transform: skewX(-24deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.36),
+    rgba(94, 234, 212, 0.28),
+    transparent
+  );
+  transition: left 560ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.flash-sheen-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -10px rgba(11, 122, 92, 0.45);
+}
+
+.flash-sheen-btn:hover::after {
+  left: 140%;
+}
+
+/* Cursor-tracking Luminous Emerald-Cobalt Specular KPI Cards */
+.kpi-specular-card {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(7, 42, 46, 0.11);
+  box-shadow:
+    0 1px 2px rgba(7, 42, 46, 0.04),
+    0 12px 28px -16px rgba(7, 42, 46, 0.16);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.kpi-specular-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 260ms ease;
+  background: radial-gradient(
+    280px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(20, 184, 138, 0.22),
+    rgba(14, 107, 138, 0.10) 44%,
+    transparent 74%
+  );
+}
+
+.kpi-specular-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 260ms ease;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    220px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(20, 184, 138, 0.85),
+    rgba(56, 189, 248, 0.32) 55%,
+    transparent 80%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.kpi-specular-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(11, 122, 92, 0.38);
+  box-shadow:
+    0 6px 16px -6px rgba(11, 122, 92, 0.22),
+    0 20px 38px -18px rgba(7, 42, 46, 0.24);
+}
+
+.kpi-specular-card:hover::before,
+.kpi-specular-card:hover::after {
+  opacity: 1;
+}
+
+/* Geometric Clinical Glyph Badge */
+.glyph-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(11, 122, 92, 0.28);
+  background: linear-gradient(135deg, rgba(20, 184, 138, 0.16), rgba(244, 248, 247, 0.95));
+  color: #0B7A5C;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E6F0EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(7, 42, 46, 0.22);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(11, 122, 92, 0.55);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toast-in {
+  animation: toastSlideIn 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rea-particles,
+  .rea-sweep,
+  .rea-glow-a,
+  .rea-glow-b,
+  .rea-hero-glow-a,
+  .rea-hero-glow-b,
+  .rea-orbit-a,
+  .rea-orbit-b,
+  .rea-hero-orbit-a,
+  .rea-hero-orbit-b {
+    animation: none !important;
+  }
+}
+
+/* Mobile & PC Ergonomics: fast touch taps, smooth horizontal tables, safe-area support */
+button,
+a,
+select,
+input,
+textarea {
+  touch-action: manipulation;
+}
+
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='search'],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
