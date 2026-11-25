@@ -54,28 +54,18 @@ git push -u origin main
 
 ---
 
-## Zero-Config Netlify Deployment
+## Zero-Config Vercel & Netlify Deployment
 
-This repository includes [`netlify.toml`](./netlify.toml) preconfigured with `npm run build`, publish directory `dist`, Node 22, VibeSec security headers (`CSP`, `HSTS`, `X-Frame-Options: DENY`), and SPA fallback (`/* -> /index.html 200`).
+### Vercel (Primary Production Host)
 
-### Option 1 — 1-Click Deploy to Netlify (Fastest)
+This repository includes [`vercel.json`](./vercel.json) preconfigured for Vite (`framework: "vite"`, `buildCommand: "npm run build"`, `outputDirectory: "dist"`, Node `22.x`), SPA rewrites (`/* -> /index.html`), immutable 1-year Edge caching on `/assets/*`, strict VibeSec security headers (`CSP`, `HSTS`, `X-Frame-Options: DENY`), and zero eager Three.js preloading for fast mobile loading.
+
+- Every push to `main` automatically rebuilds and updates the live Vercel deployment (`https://emca-chz-merl.vercel.app`).
+
+### Netlify (Alternative Host)
+
+This repository also includes [`netlify.toml`](./netlify.toml) preconfigured with `npm run build`, publish directory `dist`, Node 22, VibeSec security headers, and SPA fallback (`/* -> /index.html 200`).
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/williamngondoz-del/chz-sovereign-merl-platform)
 
-Direct link: `https://app.netlify.com/start/deploy?repository=https://github.com/williamngondoz-del/chz-sovereign-merl-platform`
-
-### Option 2 — Continuous Deployment via Netlify Dashboard
-
-1. Open [app.netlify.com](https://app.netlify.com) and click **Add new site → Import an existing project → GitHub**.
-2. Select **`williamngondoz-del/chz-sovereign-merl-platform`**. Netlify automatically reads `netlify.toml` (`Build command: npm run build`, `Publish directory: dist`).
-3. Click **Deploy site**. Every push to `main` automatically rebuilds and publishes.
-
-### Option 3 — Deploy via Netlify CLI
-
-```bash
-npm install -g netlify-cli
-netlify login
-npm run build
-netlify deploy --prod --dir=dist
-```
 
